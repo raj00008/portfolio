@@ -7,15 +7,16 @@ class App extends Component {
       showAntotechwireframes:false,
       showAntotechwireframestext:"Watch Video",
       iosfinaltext:"Watch Video",
-      uiuxtext:"Watch Video",
+      algonquinfoodtext:"Watch Video",
       cheopainText:"Try Demo",
       aceText:"Watch Video",
       iosfinal:false,
-      uiux:false,
+      algonquinfood:false,
       cheopain:false,
       ace:false,
-      listCount:0
-
+      listCount:0,
+      uiux:false,
+      uiuxtext:"Watch Demo"
     }
   }
   componentDidMount(){
@@ -43,12 +44,14 @@ class App extends Component {
     this.setState({
       showAntotechwireframes:false,
       iosfinal:false,
-      uiux:false,
+      algonquinfood:false,
       cheopain:false,
       ace:false,
+      uiux:false,
+      uiuxtext:"Watch Video",
       showAntotechwireframestext:"Watch Video",
       iosfinaltext:"Watch Video",
-      uiuxtext:"Watch Video",
+      algonquinfoodtext:"Watch Video",
       cheopainText:"Try Demo",
       aceText:"Watch Video",
     })
@@ -66,6 +69,18 @@ class App extends Component {
       iosfinaltext:original,
     })
     break;
+    case "uiux":
+    let original1=this.state.uiuxtext;
+    if(original1==="Watch Video"){
+      original1="Close";
+    }else if(original1 === "Close"){
+      original1="Watch Video"
+    }
+  this.setState({
+    uiux:!this.state.uiux,
+    uiuxtext:original1,
+  })
+  break;
     case "ace":
       let orgnal=this.state.aceText;
       if(orgnal==="Watch Video"){
@@ -90,16 +105,16 @@ class App extends Component {
       showAntotechwireframestext:origina
     })
     break;
-    case "uiux":
-    let origin=this.state.uiuxtext;
+    case "algonquinfood":
+    let origin=this.state.algonquinfoodtext;
       if(origin==="Watch Video"){
         origin="Close";
       }else if(origin === "Close"){
         origin="Watch Video"
       }
     this.setState({
-      uiuxtext:origin,
-      uiux:!this.state.uiux
+      algonquinfoodtext:origin,
+      algonquinfood:!this.state.algonquinfood
     })
     break;
     case "cheopain":
@@ -124,7 +139,7 @@ class App extends Component {
       <div className="App">
       
         <header className="App-header">
-          <h1> Mobile Application Developer | Software Developer | Full-Stack Developer</h1>
+          <h1> Mobile Application Developer </h1>
           <div className="objective">
               <h4>Objective</h4>
               <p>To work in a company where there is constant learning and collaboration that values innovation, creativity and quality.</p>
@@ -140,6 +155,9 @@ class App extends Component {
               <a href="tel:+13439888394">(343)988-8394</a>
               <img alt="mail" src={require('./assets/linkedin.svg')} />
               <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/dharak-raj-252082114/">https://www.linkedin.com/in/devndesign/</a>
+              <img alt="github" src={require('./assets/github.svg')} />
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/raj00008">https://github.com/raj00008</a>
+       
             </div>
             <div className="skills">
               <h2>Skills</h2>
@@ -262,8 +280,8 @@ class App extends Component {
                 <li>Built back-end api with NodeJs, Express.</li>
                 <li>API talks to MongoDB to store and fetch data.</li>
               </ul>
+              
               <h3>IOS Passport Application</h3>
-              <a id="ios" target="_blank" rel="noopener noreferrer" href="https://github.com/guer0157/iosFinal">https://github.com/guer0157/iosFinal</a>
               <a href="#ios" onClick={this.showGraphics} id="ios" className="vid">{this.state.iosfinaltext}</a>
              
               {this.state.iosfinal&&
@@ -275,12 +293,35 @@ class App extends Component {
                 <li>Used Swift to develop a passport application to track trips.</li>
                 <li>Implemented URLSession and URLRequest to make calls to a JSON API for data.</li>
               </ul>
-              
+             
               </div>
               <div>
+              <h3>Find Restaurant near me for React Native Course Final Project</h3>
+              <p onClick={this.showGraphics} id="algonquinfood" className="vid">{this.state.algonquinfoodtext}</p>
+              {this.state.algonquinfood&&
+              <video width="300" height="600" controls autoPlay>
+              <source src={require("./assets/ALGONQUINFOOD.mov")} type="video/mp4"/>
+              </video>
+              }
+              <ul className="skills-port-ul">
+                <li>Used React Native Technology to create EAT24 which can find restaurant near me.</li>
+                <li>yelp Api to fetch data about restaurants </li>
+                <li>Used React Native geolocatuion to find co-ordinates of devise</li>
+              </ul> <h3>UI &amp; UX Design</h3>
+              <p onClick={this.showGraphics} id="uiux" className="vid">{this.state.uiuxtext}</p>
+              {this.state.uiux&&
+              <video width="300" height="600" controls autoPlay>
+              <source src={require("./assets/UIUX.mov")} type="video/mp4"/>
+              </video>
+              }
+              <ul className="skills-port-ul">
+                <li>Used Sketch 2 to design an interactive visual mock-up.</li>
+                <li>Followed by iOS Human Interface Guidelines .</li>
+                <li>Followed user-centric design - Research, Prototype, Design, to create intutive UI</li>
+              </ul>
               </div>
-            </div>
           </div>
+        </div>
       </div>
     );
   }
